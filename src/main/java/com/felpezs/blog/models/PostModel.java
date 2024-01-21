@@ -2,21 +2,21 @@ package com.felpezs.blog.models;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-import java.util.UUID;
 
-@Document("post")
+@Document("Posts")
 @Getter
 @Setter
-public class Post {
+public class PostModel {
     @Id
-    private UUID id;
+    private String id;
     private String title;
     private String subtitle;
-    private String author;
+    @CreatedDate
     private Instant createdAt;
-    public byte[] file;
+    private byte[] data;
 }
